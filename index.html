@@ -1,0 +1,67 @@
+<style type="text/css">
+#tile {
+width: 10vw;
+height: auto;
+}
+#table {
+position: absolute;
+top: 10vh;
+width: 80vw;
+left: 10vw;
+min-height: 90vh;
+}
+audio {
+position: fixed;
+bottom: 0vh;
+left: 0vw;
+right: 0vw;
+width: 100vw;
+}
+a {
+color: black;
+text-decoration: none;
+}
+body {
+font-family: Helvetica, Arial;
+text-align: center;
+}
+</style>
+<html>
+<body bgcolor="white">
+<table id="table">
+<tr>
+<td><a href="javascript:ESPN()"><img id="tile" src="espn.gif"></img><br />ESPN Radio</a></td>
+
+<td><a href="javascript:Century()"><img id="tile" src="20.png"></img><br />20th Century Radio</a></td>
+
+<td><a href="javascript:CNN()"><img id="tile" src="cnn.png"></img><br />CNN</a></td>
+
+<td><a href="javascript:ROKC()"><img id="tile" src="rok.png"></img><br />ROK American Comedy</a></td>
+</tr>
+</table>
+<audio src="" controls>
+</body>
+</html>
+<script type="text/javascript">
+ESPNurl = "http://us-east.edge-1.cis.abacast.net/direct/espn-network-48?source=tunein"
+Centuryurl = "http://audioartsradio.com:6006/;"
+CNNurl = "http://tunein.streamguys1.com/cnn"
+ROKCurl = "http://s1.viastreaming.net:9160/;"
+function Play(url) {
+	audio = document.getElementsByTagName("audio")[0]
+	audio.src = url
+	audio.play()
+}
+function ESPN() {
+	Play(ESPNurl)
+}
+function Century() {
+	Play(Centuryurl)
+}
+function CNN() {
+	Play(CNNurl)
+}
+function ROKC() {
+	Play(ROKCurl)
+}
+</script>
