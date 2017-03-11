@@ -1,14 +1,26 @@
 <style type="text/css">
 #tile {
-width: 10vw;
-height: auto;
+height: 11vh;
+width: auto;
 }
 #table {
 position: absolute;
 top: 10vh;
 width: 80vw;
 left: 10vw;
-min-height: 90vh;
+min-height: 60vh;
+font-size: 1.4vh;
+}
+#cell {
+margin: auto;
+text-align:center; 
+vertical-align:middle;
+}
+#guide {
+margin: auto;
+text-align: center; 
+vertical-align:middle;
+font-size: 1.6vh;
 }
 audio {
 position: fixed;
@@ -20,6 +32,9 @@ width: 100vw;
 a {
 color: black;
 text-decoration: none;
+margin: auto;
+text-align:center; 
+vertical-align:middle;
 }
 body {
 font-family: Helvetica, Arial;
@@ -29,15 +44,6 @@ text-align: center;
 <html>
 <body bgcolor="white">
 <table id="table">
-<tr>
-<td><a href="javascript:ESPN()"><img id="tile" src="espn.gif"></img><br />ESPN Radio</a></td>
-
-<td><a href="javascript:Century()"><img id="tile" src="20.png"></img><br />20th Century Radio</a></td>
-
-<td><a href="javascript:CNN()"><img id="tile" src="cnn.png"></img><br />CNN</a></td>
-
-<td><a href="javascript:ROKC()"><img id="tile" src="rok.png"></img><br />ROK American Comedy</a></td>
-</tr>
 </table>
 <audio src="" controls>
 </body>
@@ -47,6 +53,12 @@ ESPNurl = "http://us-east.edge-1.cis.abacast.net/direct/espn-network-48?source=t
 Centuryurl = "http://audioartsradio.com:6006/;"
 CNNurl = "http://tunein.streamguys1.com/cnn"
 ROKCurl = "http://s1.viastreaming.net:9160/;"
+MPIRurl = "http://s3.voscast.com:8454/;"
+ESPNTurl = "http://tunein.streamguys1.com/ESPNTV?aw_0_1st.playerid=RadioTime&aw_0_1st.skey=1489254677"
+table = document.getElementsByTagName("table")[0]
+table.innerHTML = '<td><div id="guide"><br /><b>Sports</b></div><br /><a href="javascript:ESPN()"><div id="cell"><img id="tile" src="espn.gif"></img><br />ESPN Radio</div></a></td>' + '<td><br /><br /><a href="javascript:ESPNT()"><div id="cell"><img id="tile" src="espnt.jpg"></img><br />ESPN Talk</a></div></td>'
+table.innerHTML = table.innerHTML + '<td><div id="guide"><br /><b>Entertainment</b></div><br /><a href="javascript:Century()"><div id="cell"><img id="tile" src="20.png"></img><br />20th Century Radio</a></div></td>' + '<td><br /><br /><a href="javascript:ROKC()"><div id="cell"><img id="tile" src="rok.png"></img><br />ROK American Comedy</a></div></td>' + '<td><br /><br /><a href="javascript:MPIR()"><div id="cell"><img id="tile" src="mpir.png"></img><br />MPIR</a></div></td>'
+table.innerHTML = table.innerHTML + '<td><div id="guide"><br /><b>Politics</b></div><br /><a href="javascript:CNN()"><div id="cell"><img id="tile" src="cnn.png"></img><br />CNN</a></div></td>'
 function Play(url) {
 	audio = document.getElementsByTagName("audio")[0]
 	audio.src = url
@@ -63,5 +75,11 @@ function CNN() {
 }
 function ROKC() {
 	Play(ROKCurl)
+}
+function MPIR() {
+	Play(MPIRurl)
+}
+function ESPNT() {
+	Play(ESPNTurl)
 }
 </script>
